@@ -14,6 +14,11 @@ def main():
     # 3. Initialise the window/screen for display
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
+    # 5. Create clock to limit FPS
+    clock = pygame.time.Clock()
+    dt = 0.0
+
+
     # 4. Create game loop - Drawing game to screen
     while True:
         log_state()
@@ -22,6 +27,8 @@ def main():
                 return
         screen.fill("black")
         pygame.display.flip()
+        dt = clock.tick(60) / 1000
+        print(dt)
 
 if __name__ == "__main__":
     main()
