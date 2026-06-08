@@ -3,6 +3,7 @@ from constants import *
 from logger import log_state
 from player import Player
 from asteroid import Asteroid
+from asteroidfield import AsteroidField
 
 def main():
     # Print starting messages
@@ -27,10 +28,11 @@ def main():
 
     Player.containers = (updatable, drawable)
     Asteroid.containers = (asteroids, updatable, drawable)
+    AsteroidField.containers = (updatable,)
 
     # Initiate Player in centre of screen
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
-
+    asteroid_filed = AsteroidField()
 
     # Create game loop - Drawing game to screen
     while True:
@@ -44,7 +46,6 @@ def main():
             obj.draw(screen)
         pygame.display.flip()
         dt = clock.tick(60) / 1000
-        print(dt)
 
 
 
