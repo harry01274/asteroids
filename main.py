@@ -2,6 +2,7 @@ import pygame
 from constants import *
 from logger import log_state
 from player import Player
+from asteroid import Asteroid
 
 def main():
     # Print starting messages
@@ -22,8 +23,10 @@ def main():
     # Create Groups
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
+    asteroids = pygame.sprite.Group()
 
     Player.containers = (updatable, drawable)
+    Asteroid.containers = (asteroids, updatable, drawable)
 
     # Initiate Player in centre of screen
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
